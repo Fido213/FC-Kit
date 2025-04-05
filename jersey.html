@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jersey Details</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  >
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">Jersey Shop</a></h1>
+    <nav><a href="index.html">&larr; Back to Shop</a></nav>
+  </header>
+
+  <main id="jersey-detail-content">
+    <div class="loading">Loading jersey details...</div>
+  </main>
+
+  <section id="order-form-section" style="display: none;">
+    <h2>Order This Jersey</h2>
+    <form id="order-form">
+      <input type="hidden" id="jersey-id" name="jersey_id">
+      <input type="hidden" id="jersey-name" name="jersey_name">
+
+      <div class="form-group">
+        <label for="customer-name">Name:</label>
+        <input type="text" id="customer-name" name="customer_name" required>
+      </div>
+      <div class="form-group">
+        <label for="customer-email">Email:</label>
+        <input type="email" id="customer-email" name="customer_email" required>
+      </div>
+      <div class="form-group">
+        <label for="customer-address">Shipping Address:</label>
+        <textarea id="customer-address" name="customer_address" rows="3" required></textarea>
+      </div>
+
+      <div id="customization-options" style="display: none;">
+        <h3>Customization (Optional)</h3>
+        <div class="form-group">
+          <label for="custom-name">Name on Jersey:</label>
+          <input type="text" id="custom-name" name="custom_name">
+        </div>
+        <div class="form-group">
+          <label for="custom-number">Number on Jersey:</label>
+          <input type="number" id="custom-number" name="custom_number" min="0" max="99">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Place Order Request</button>
+      <p id="form-status"></p>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> FC kit. All rights reserved.</p>
+  </footer>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- Your data and logic -->
+  <script src="js/data.js"></script>
+  <script src="js/order.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // 1. Initialize EmailJS
+    emailjs.init({
+      publicKey: 'Cvqj7Ek3BX9_jOPKt' // ← your public key
+    });
+
+    // 2. Handle form submission
+    document.getElementById('order-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Optional: disable button while sending
+      const btn = this.querySelector('button');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      emailjs.sendForm(
+        'service_doq5b01',   // ← replace with your Service ID
+        'template_hmzasyy',  // ← replace with your Template ID
+        this
+      )
+      .then(() => {
+        document.getElementById('form-status').textContent = '✅ Order request sent!';
+        this.reset();
+      })
+      .catch((err) => {
+        console.error('EmailJS Error:', err);
+        document.getElementById('form-status').textContent = '❌ Failed to send. Please try again.';
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = 'Place Order Request';
+      });
+    });
+
+    // 3. Update footer year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // 4. Load jersey details when DOM is ready
+    document.addEventListener('DOMContentLoaded', loadJerseyDetails);
+  </script>
+</body>
+</html>

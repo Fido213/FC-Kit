@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le 11 Fc - Accueil</title> <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    </head>
+<body>
+
+    <header class="site-header">
+        <div class="top-bar">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                &#9776; </button>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo-placeholder.png" alt="Le 11 Fc Logo" height="40">
+                </a>
+            </div>
+            <div class="header-icons">
+                <button aria-label="Search">
+                    &#128269; </button>
+                 <button aria-label="My Account">
+                    &#128100; </button>
+                <button aria-label="Shopping Cart">
+                     &#128722; </button>
+                </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li>
+                    <a href="#">Nos maillots</a>
+                    </li>
+                <li><a href="#link-to-concepts" data-filter="concepts">Concepts</a></li> <li><a href="#link-to-special" data-filter="special-editions">Special Edition</a></li> <li>
+                    <a href="#">Leagues</a>
+                     </li>
+                 <li>
+                    <a href="#">Season</a>
+                     </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-background"> <div class="hero-content">
+                <h2>Nouvelle arrivée / New arrival</h2>
+                <h1>Passion du Foot... FC Wear</h1> <p>We bring the love...</p>
+                <a href="#jersey-grid" class="btn btn-primary">Découvrez nos maillots</a> </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="featured-products" id="all-jerseys"> <div class="section-header">
+                <h2>Best Sellers</h2>
+                <a href="#" class="view-all-link">Voir tout &rarr;</a> </div>
+            <div id="jersey-grid" class="jersey-grid">
+                <p>Loading jerseys...</p>
+            </div>
+        </section>
+
+        <section class="categories-preview">
+             <div class="section-header">
+                 <h2>Categories</h2>
+             </div>
+            <div class="category-grid" id="category-filters"> <a href="#jersey-grid" class="category-item" data-filter="all">
+                    <img src="images/cat-all-placeholder.png" alt="All Jerseys">
+                    <span>Nos Maillots</span>
+                 </a>
+                 <a href="#jersey-grid" class="category-item" data-filter="bundesliga">
+                    <img src="images/cat-bundesliga-placeholder.png" alt="Bundesliga">
+                    <span>Bundesliga</span>
+                 </a>
+                 <a href="#jersey-grid" class="category-item" data-filter="concepts">
+                    <img src="images/cat-concepts-placeholder.png" alt="Concepts">
+                    <span>Concepts</span>
+                 </a>
+                  <a href="#jersey-grid" class="category-item" data-filter="national"> <img src="images/cat-national-placeholder.png" alt="Equipe nationale">
+                    <span>Equipe nationale</span>
+                 </a>
+                 <a href="#jersey-grid" class="category-item" data-filter="premier-league">
+                    <img src="images/cat-pl-placeholder.png" alt="Premier League">
+                    <span>Premier League</span>
+                 </a>
+                  <a href="#jersey-grid" class="category-item" data-filter="la-liga">
+                    <img src="images/cat-liga-placeholder.png" alt="La Liga">
+                    <span>La Liga</span>
+                 </a>
+                 <a href="#jersey-grid" class="category-item" data-filter="ligue-1">
+                    <img src="images/cat-ligue1-placeholder.png" alt="Ligue 1">
+                    <span>Ligue 1</span>
+                 </a>
+                 <a href="#jersey-grid" class="category-item" data-filter="serie-a"> <img src="images/cat-seriea-placeholder.png" alt="Serie A">
+                    <span>Serie A</span>
+                 </a>
+                  </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <p>Email: info@jerseyshop.com</p>
+                <p>Phone: +123 456 7890</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                </ul>
+            </div>
+             <div class="footer-column">
+                <h4>Follow Us</h4>
+                <a href="#" aria-label="Facebook">FB</a> |
+                <a href="#" aria-label="Instagram">IN</a> |
+                <a href="#" aria-label="Twitter">TW</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+             <p>&copy; <span id="current-year"></span> Le 11 Fc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script> <script>
+        // Simple script to update the year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Basic mobile menu toggle (optional - requires CSS for .nav-open)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('nav-open');
+            });
+        }
+    </script>
+</body>
+</html>
