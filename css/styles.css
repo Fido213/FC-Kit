@@ -1,7 +1,7 @@
 /* === Base Styles & Variables === */
 :root {
     --primary-color: #3498db; /* Example blue */
-    --secondary-color: #2c3e50; /* Dark blue/grey */
+    --secondary-color: #000000; /* Black */
     --accent-color: #e74c3c; /* Example red */
     --light-grey: #ecf0f1;
     --medium-grey: #bdc3c7;
@@ -73,6 +73,7 @@ button, .btn {
 
 button:hover, .btn:hover {
     background-color: var(--secondary-color);
+    color: var(--white-color); /* Ensure text remains white on black hover */
     transform: translateY(-2px);
 }
 
@@ -119,17 +120,19 @@ h3 { font-size: 1.3em; }
     font-size: 1.5em;
     color: var(--secondary-color);
     cursor: pointer;
+    padding: 5px;
 }
 
 .logo img {
     height: calc(var(--header-height) * 0.7); /* Adjust logo height relative to bar */
     width: auto;
+    vertical-align: middle; /* Better alignment */
 }
 
 .header-icons {
     display: flex;
     align-items: center;
-    gap: 15px; /* Space between icons */
+    gap: 5px; /* Reduced gap to fit search */
 }
 
 .header-icons button {
@@ -137,17 +140,54 @@ h3 { font-size: 1.3em; }
     border: none;
     font-size: 1.3em; /* Adjust icon size */
     color: var(--secondary-color);
-    padding: 5px;
+    padding: 8px; /* Slightly more padding */
     line-height: 1; /* Prevent extra button height */
+    cursor: pointer;
 }
 .header-icons button:hover {
     color: var(--primary-color);
     transform: none; /* Prevent icon jump */
 }
 
+/* --- Search Container Styles --- */
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--medium-grey);
+    border-radius: 20px; /* Rounded corners */
+    padding: 0 5px 0 10px; /* Padding left/right */
+    overflow: hidden; /* Ensure button stays inside */
+    background-color: var(--white-color);
+    margin-right: 10px; /* Space between search and other icons */
+}
+
+#search-input {
+    border: none;
+    outline: none;
+    padding: 6px 0; /* Vertical padding */
+    font-size: 0.9em;
+    background: none;
+    width: 150px; /* Adjust width as needed */
+    transition: width 0.3s ease-in-out;
+}
+#search-input:focus {
+     width: 200px; /* Expand on focus */
+}
+
+#search-button {
+    padding: 6px 8px; /* Adjust button padding */
+    font-size: 1.1em; /* Slightly smaller icon */
+    color: var(--dark-grey); /* Muted icon color */
+}
+#search-button:hover {
+    color: var(--primary-color);
+}
+/* --- End Search --- */
+
 .main-nav {
     height: var(--nav-height);
     background-color: var(--white-color); /* Or a slightly different shade */
+    border-top: 1px solid var(--light-grey); /* Optional separator */
 }
 
 .main-nav ul {
@@ -299,7 +339,6 @@ section {
 }
 
 /* Existing .jersey-card styles from previous CSS should work well here */
-/* Make sure they are included below if you didn't merge */
 .jersey-card {
     background-color: #fff;
     border-radius: 8px;
@@ -336,12 +375,14 @@ section {
     line-height: 1.2em;
 }
 
+/* --- Price Color Change --- */
 .jersey-card .price {
     font-weight: bold;
-    color: var(--accent-color);
+    color: #000000; /* Changed to black */
     margin-bottom: 10px;
     font-size: 1.2em;
 }
+/* --- End Price Color Change --- */
 
 .jersey-card a:not(.btn) { /* Ensure top link doesn't look like a button */
     text-decoration: none;
@@ -376,7 +417,7 @@ section {
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Added border transition */
     border: 2px solid transparent; /* For active state */
 }
 
@@ -403,8 +444,8 @@ section {
 /* Style for active category filter */
 .category-item.active {
     border-color: var(--primary-color);
-    box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3); /* Highlight shadow */
-    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.2); /* Adjusted shadow */
+    transform: translateY(-2px); /* Keep small lift */
 }
 
 
@@ -483,6 +524,9 @@ section {
     .jersey-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
     .category-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
     .hero-content h1 { font-size: 2.4em; }
+    .search-container { max-width: 200px; } /* Prevent search taking too much space */
+    #search-input { width: 100px; }
+    #search-input:focus { width: 150px; }
 }
 
 /* Small screens (mobiles) */
@@ -497,7 +541,19 @@ section {
         display: block; /* Show hamburger */
         z-index: 1002; /* Above nav */
         position: relative; /* For stacking context */
+        order: -1; /* Move hamburger to the far left */
     }
+
+    /* Hide search on smallest screens initially or adjust layout */
+    /* Option 1: Hide search container */
+    /* .search-container { display: none; } */
+
+    /* Option 2: Adjust layout */
+     .top-bar { flex-wrap: wrap; height: auto; padding-bottom: 5px; } /* Allow wrap */
+     .logo { order: 0; text-align: center; width: 100%; padding: 5px 0;} /* Center logo below toggle */
+     .header-icons { order: 1; width: 100%; justify-content: flex-end;} /* Move icons to right end */
+     .search-container { margin-right: auto; order: -1; } /* Move search left */
+
 
     .main-nav {
         position: fixed; /* Take nav out of flow */
@@ -556,9 +612,8 @@ section {
     .footer-column { margin-bottom: 20px; }
 }
 
-/* === Jersey Detail & Order Form Styles (Keep from previous version) === */
-/* Add the styles for jersey.html and the order form here if you removed them */
-/* Example stubs - make sure these are present and complete */
+/* === Jersey Detail & Order Form Styles === */
+/* Ensure these styles are complete */
 #jersey-detail-content {
     display: flex;
     flex-wrap: wrap;
@@ -572,7 +627,14 @@ section {
 .jersey-image-container { flex: 1 1 300px; text-align: center; }
 .jersey-image-container img { border-radius: 8px; }
 .jersey-info-container { flex: 2 1 400px; }
-.jersey-info-container .price { font-size: 1.8em; font-weight: bold; color: var(--accent-color); margin-bottom: 15px; }
+/* Price Color Change */
+.jersey-info-container .price {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #000000; /* Changed to black */
+    margin-bottom: 15px;
+}
+/* End Price Color Change */
 .jersey-info-container .tags span { background-color: var(--light-grey); color: var(--dark-grey); padding: 3px 8px; border-radius: 4px; font-size: 0.85em; margin-right: 5px; display: inline-block; margin-bottom: 5px; }
 
 #order-form-section { background-color: var(--white-color); padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-top: 20px; }
@@ -582,21 +644,23 @@ section {
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="number"],
-.form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--medium-grey); border-radius: 4px; font-size: 1em; }
+.form-group input[type="search"], /* Style search input */
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--medium-grey);
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: inherit; /* Ensure consistent font */
+}
 #customization-options { border-top: 1px solid var(--light-grey); margin-top: 20px; padding-top: 15px; }
-#form-status { margin-top: 15px; font-weight: bold; text-align: center; }
-#form-status.success { color: #27ae60; }
-#form-status.error { color: #c0392b; }
+#form-status { margin-top: 15px; font-weight: bold; text-align: center; padding: 10px; border-radius: 4px;}
+#form-status.success { color: #27ae60; background-color: #e9f7ef; border: 1px solid #a1e7c4;}
+#form-status.error { color: #c0392b; background-color: #fbeeee; border: 1px solid #f5c6cb;}
+#form-status.processing { color: var(--dark-grey); background-color: var(--light-grey); border: 1px solid var(--medium-grey);} /* Added processing style */
 
-/* Responsive adjustments for detail page if needed */
+
+/* Responsive adjustments for detail page */
 @media (max-width: 768px) {
     #jersey-detail-content { flex-direction: column; padding: 20px; }
 }
-    <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        // Simple script to update the year in the footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-</body>
-</html>

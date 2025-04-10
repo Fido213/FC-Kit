@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="en"> <head>
-    <meta charset="UTF-8">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Shop the latest concept, special edition, and league soccer jerseys. High-quality kits from around the world.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le 11 Fc - Accueil</title> <link rel="stylesheet" href="css/styles.css">
+    <title>Le 11 Fc - Accueil</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     </head>
-<body>
-
-    <header class="site-header">
+<body data-category="all"> <header class="site-header">
         <div class="top-bar">
             <button class="menu-toggle" aria-label="Toggle menu">
                 &#9776; </button>
@@ -19,8 +24,11 @@
                 </a>
             </div>
             <div class="header-icons">
-                <button aria-label="Search">
-                    &#128269; </button>
+                <div class="search-container">
+                    <input type="search" id="search-input" placeholder="Search jerseys...">
+                    <button aria-label="Search" id="search-button">
+                        &#128269; </button>
+                 </div>
                  <button aria-label="My Account">
                     &#128100; </button>
                 <button aria-label="Shopping Cart">
@@ -28,33 +36,33 @@
                 </div>
         </div>
         <nav class="main-nav">
-            <ul>
+             <ul>
                 <li><a href="index.html" class="active">Accueil</a></li>
-                <li>
-                    <a href="#">Nos maillots</a>
-                    </li>
-                <li><a href="#link-to-concepts" data-filter="concepts">Concepts</a></li> <li><a href="#link-to-special" data-filter="special-editions">Special Edition</a></li> <li>
-                    <a href="#">Leagues</a>
-                     </li>
-                 <li>
-                    <a href="#">Season</a>
-                     </li>
+                <li><a href="all-jerseys.html">Nos maillots</a></li>
+                <li><a href="concepts.html">Concepts</a></li>
+                <li><a href="special-editions.html">Special Edition</a></li>
+                <li><a href="leagues.html">Leagues</a></li>
+                <li><a href="season-2425.html">Season</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-background"> <div class="hero-content">
+        <div class="hero-background">
+            <div class="hero-content">
                 <h2>Nouvelle arrivée / New arrival</h2>
-                <h1>Passion du Foot... Le 11 Fc</h1> <p>We bring the love...</p>
-                <a href="#jersey-grid" class="btn btn-primary">Découvrez nos maillots</a> </div>
+                <h1>Passion du Foot... Le 11 Fc</h1>
+                <p>We bring the love...</p>
+                <a href="#jersey-grid" class="btn btn-primary">Découvrez nos maillots</a>
+            </div>
         </div>
     </section>
 
     <main>
-        <section class="featured-products" id="all-jerseys"> <div class="section-header">
-                <h2>Best Sellers</h2>
-                <a href="#" class="view-all-link">Voir tout &rarr;</a> </div>
+        <section class="featured-products" id="all-jerseys">
+            <div class="section-header">
+                <h2>Best Sellers</h2> <a href="#" class="view-all-link">Voir tout &rarr;</a>
+            </div>
             <div id="jersey-grid" class="jersey-grid">
                 <p>Loading jerseys...</p>
             </div>
@@ -64,7 +72,8 @@
              <div class="section-header">
                  <h2>Categories</h2>
              </div>
-            <div class="category-grid" id="category-filters"> <a href="#jersey-grid" class="category-item" data-filter="all">
+            <div class="category-grid" id="category-filters">
+                 <a href="#jersey-grid" class="category-item" data-filter="all">
                     <img src="images/cat-all-placeholder.png" alt="All Jerseys">
                     <span>Nos Maillots</span>
                  </a>
@@ -76,7 +85,8 @@
                     <img src="images/cat-concepts-placeholder.png" alt="Concepts">
                     <span>Concepts</span>
                  </a>
-                  <a href="#jersey-grid" class="category-item" data-filter="national"> <img src="images/cat-national-placeholder.png" alt="Equipe nationale">
+                  <a href="#jersey-grid" class="category-item" data-filter="national">
+                    <img src="images/cat-national-placeholder.png" alt="Equipe nationale">
                     <span>Equipe nationale</span>
                  </a>
                  <a href="#jersey-grid" class="category-item" data-filter="premier-league">
@@ -91,8 +101,12 @@
                     <img src="images/cat-ligue1-placeholder.png" alt="Ligue 1">
                     <span>Ligue 1</span>
                  </a>
-                 <a href="#jersey-grid" class="category-item" data-filter="serie-a"> <img src="images/cat-seriea-placeholder.png" alt="Serie A">
+                 <a href="#jersey-grid" class="category-item" data-filter="serie-a">
+                    <img src="images/cat-seriea-placeholder.png" alt="Serie A">
                     <span>Serie A</span>
+                 </a>
+                 <a href="#jersey-grid" class="category-item" data-filter="special-editions"> <img src="images/cat-special-placeholder.png" alt="Special Editions">
+                    <span>Special Editions</span>
                  </a>
                   </div>
         </section>
@@ -128,11 +142,12 @@
     </footer>
 
     <script src="js/data.js"></script>
-    <script src="js/main.js"></script> <script>
+    <script src="js/main.js"></script>
+    <script>
         // Simple script to update the year in the footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Basic mobile menu toggle (optional - requires CSS for .nav-open)
+        // Basic mobile menu toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const mainNav = document.querySelector('.main-nav');
         if (menuToggle && mainNav) {
