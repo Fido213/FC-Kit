@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Concept Jerseys - Le 11 Fc</title>
+    <meta name="description" content="Explore unique concept soccer jerseys and fantasy kits from Le 11 Fc.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-category="concepts"> <header class="site-header">
+        <div class="top-bar">
+            <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+            <div class="logo"><a href="index.html"><img src="images/logo-placeholder.png" alt="Le 11 Fc Logo" height="40"></a></div>
+            <div class="header-icons">
+                <div class="search-container">
+                    <input type="search" id="search-input" placeholder="Search jerseys...">
+                    <button aria-label="Search" id="search-button">&#128269;</button>
+                 </div>
+                 <button aria-label="My Account">&#128100;</button>
+                 <button aria-label="Shopping Cart">&#128722;</button>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="all-jerseys.html">Nos maillots</a></li>
+                <li><a href="concepts.html" class="active">Concepts</a></li> <li><a href="special-editions.html">Special Edition</a></li>
+                <li><a href="leagues.html">Leagues</a></li>
+                <li><a href="season-2425.html">Season</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="featured-products" id="category-jerseys">
+            <div class="section-header">
+                <h2>Concept Jerseys</h2> <a href="index.html" class="view-all-link">&larr; Back to Home</a>
+            </div>
+            <div id="jersey-grid" class="jersey-grid">
+                <p>Loading concept jerseys...</p>
+            </div>
+        </section>
+
+        <section class="categories-preview">
+             <div class="section-header"><h2>Categories</h2></div>
+            <div class="category-grid" id="category-filters">
+                 <a href="#jersey-grid" class="category-item" data-filter="all"><img src="images/cat-all-placeholder.png" alt="All Jerseys"><span>Nos Maillots</span></a>
+                 <a href="#jersey-grid" class="category-item" data-filter="bundesliga"><img src="images/cat-bundesliga-placeholder.png" alt="Bundesliga"><span>Bundesliga</span></a>
+                 <a href="#jersey-grid" class="category-item" data-filter="concepts"><img src="images/cat-concepts-placeholder.png" alt="Concepts"><span>Concepts</span></a>
+                 <a href="#jersey-grid" class="category-item" data-filter="national"><img src="images/cat-national-placeholder.png" alt="Equipe nationale"><span>Equipe nationale</span></a>
+                 <a href="#jersey-grid" class="category-item" data-filter="premier-league"><img src="images/cat-pl-placeholder.png" alt="Premier League"><span>Premier League</span></a>
+                 <a href="#jersey-grid" class="category-item" data-filter="la-liga"><img src="images/cat-liga-placeholder.png" alt="La Liga"><span>La Liga</span></a>
+                 <a href="#jersey-grid" class="category-item" data-filter="ligue-1"><img src="images/cat-ligue1-placeholder.png" alt="Ligue 1"><span>Ligue 1</span></a>
+                 <a href="#jersey-grid" class="category-item" data-filter="serie-a"><img src="images/cat-seriea-placeholder.png" alt="Serie A"><span>Serie A</span></a>
+                 <a href="#jersey-grid" class="category-item" data-filter="special-editions"><img src="images/cat-special-placeholder.png" alt="Special Editions"><span>Special Editions</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+         <div class="footer-container">
+            <div class="footer-column"><h4>Contact Us</h4><p>Email: info@jerseyshop.com</p><p>Phone: +123 456 7890</p></div>
+            <div class="footer-column"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="#">About Us</a></li><li><a href="#">FAQ</a></li><li><a href="#">Shipping Policy</a></li></ul></div>
+            <div class="footer-column"><h4>Follow Us</h4><a href="#" aria-label="Facebook">FB</a> | <a href="#" aria-label="Instagram">IN</a> | <a href="#" aria-label="Twitter">TW</a></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; <span id="current-year"></span> Le 11 Fc. All rights reserved.</p></div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
