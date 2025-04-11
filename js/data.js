@@ -44,10 +44,12 @@ const jerseys = [
      {
         id: "jersey005",
         name: "Juventus 24/25 Special Edition",
-        category: "special-editions" "serie a",
+     // --- FIX APPLIED HERE ---
+        category: "special-editions", // Set ONE primary category
+     // -----------------------
         price: "$85",
         image: "images/juventus-special-2425.png",
-        tags: ["24/25", "serie a", "special edition", "limited"],
+        tags: ["24/25", "serie a", "special edition", "limited"], // Keep 'serie a' in tags if relevant
         description: "Exclusive special edition Juventus jersey for the 2024/25 season.",
         customizable: false
     },
