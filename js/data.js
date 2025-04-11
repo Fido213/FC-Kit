@@ -44,7 +44,7 @@ const jerseys = [
      {
         id: "jersey005",
         name: "Juventus 24/25 Special Edition",
-        category: "special-editions",
+        category: "special-editions", "serie a",
         price: "$85",
         image: "images/juventus-special-2425.png",
         tags: ["24/25", "serie a", "special edition", "limited"],
