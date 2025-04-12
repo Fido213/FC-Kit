@@ -14,7 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     </head>
-<body data-category="all"> <header class="site-header">
+<body data-category="all"> {/* Note: The main JS looks for data-tag or data-page-type, not data-category. This attribute isn't currently used by the main script for initial loading but keeping it doesn't hurt. */}
+    <header class="site-header">
         <div class="top-bar">
             <button class="menu-toggle" aria-label="Toggle menu">
                 &#9776; </button>
@@ -61,7 +62,7 @@
     <main>
         <section class="featured-products" id="all-jerseys">
             <div class="section-header">
-                <h2>Best Sellers</h2> <a href="#" class="view-all-link">Voir tout &rarr;</a>
+                <h2>Best Sellers</h2> <a href="all-jerseys.html" class="view-all-link">Voir tout &rarr;</a> {/* Corrected link to all-jerseys.html */}
             </div>
             <div id="jersey-grid" class="jersey-grid">
                 <p>Loading jerseys...</p>
@@ -73,39 +74,41 @@
                  <h2>Categories</h2>
              </div>
             <div class="category-grid" id="category-filters">
-                 <a href="#jersey-grid" class="category-item" data-filter="all">
+                 {/* === CORRECTION: Changed data-filter to data-tag below === */}
+                 <a href="#jersey-grid" class="category-item" data-tag="all">
                     <img src="images/cat-all-placeholder.png" alt="All Jerseys">
                     <span>Nos Maillots</span>
                  </a>
-                 <a href="#jersey-grid" class="category-item" data-filter="bundesliga">
+                 <a href="#jersey-grid" class="category-item" data-tag="bundesliga">
                     <img src="images/cat-bundesliga-placeholder.png" alt="Bundesliga">
                     <span>Bundesliga</span>
                  </a>
-                 <a href="#jersey-grid" class="category-item" data-filter="concepts">
+                 <a href="#jersey-grid" class="category-item" data-tag="concept">
                     <img src="images/cat-concepts-placeholder.png" alt="Concepts">
                     <span>Concepts</span>
                  </a>
-                  <a href="#jersey-grid" class="category-item" data-filter="national">
+                  <a href="#jersey-grid" class="category-item" data-tag="national">
                     <img src="images/cat-national-placeholder.png" alt="Equipe nationale">
                     <span>Equipe nationale</span>
                  </a>
-                 <a href="#jersey-grid" class="category-item" data-filter="premier-league">
+                 <a href="#jersey-grid" class="category-item" data-tag="premier-league">
                     <img src="images/cat-pl-placeholder.png" alt="Premier League">
                     <span>Premier League</span>
                  </a>
-                  <a href="#jersey-grid" class="category-item" data-filter="la-liga">
+                  <a href="#jersey-grid" class="category-item" data-tag="la-liga">
                     <img src="images/cat-liga-placeholder.png" alt="La Liga">
                     <span>La Liga</span>
                  </a>
-                 <a href="#jersey-grid" class="category-item" data-filter="ligue-1">
+                 <a href="#jersey-grid" class="category-item" data-tag="ligue-1">
                     <img src="images/cat-ligue1-placeholder.png" alt="Ligue 1">
                     <span>Ligue 1</span>
                  </a>
-                 <a href="#jersey-grid" class="category-item" data-filter="serie-a">
+                 <a href="#jersey-grid" class="category-item" data-tag="serie-a">
                     <img src="images/cat-seriea-placeholder.png" alt="Serie A">
                     <span>Serie A</span>
                  </a>
-                 <a href="#jersey-grid" class="category-item" data-filter="special-editions"> <img src="images/cat-special-placeholder.png" alt="Special Editions">
+                 <a href="#jersey-grid" class="category-item" data-tag="special-edition">
+                    <img src="images/cat-special-placeholder.png" alt="Special Editions">
                     <span>Special Editions</span>
                  </a>
                   </div>
@@ -147,14 +150,8 @@
         // Simple script to update the year in the footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Basic mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mainNav = document.querySelector('.main-nav');
-        if (menuToggle && mainNav) {
-            menuToggle.addEventListener('click', () => {
-                mainNav.classList.toggle('nav-open');
-            });
-        }
+        // Basic mobile menu toggle is now handled within main.js,
+        // keeping this script block minimal or for other page-specific JS.
     </script>
 </body>
 </html>
